@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator graphql_generated {
+  provider    = "node node_modules/prisma-nestjs-graphql"
+  output      = "../src/types/@generated"
+  purgeOutput = true
+  emitSingle  = true
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  phoneNumber     String   @id @unique
+  fullName        String   @db.VarChar(200)
+  email           String?
+  password        String
+  isPhoneVerified Boolean  @default(false)
+  userType        UserType @default(CLIENT)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+}
+
+model Properties {
+  idProperty        String              @id @default(dbgenerated("gen_random_uuid()"))
+  propertyName      String
+  postalCode        String?
+  propertyStatus    PropertyStatus      @default(AVAILABLE)
+  propertyType      PropertyType        @default(HOUSE)
+  pieceCount        Int
+  price             Decimal
+  PropertyAmenties  PropertyAmenties[]
+  PotentialCosts    PotentialCosts[]
+  PropertyDistances PropertyDistances[]
+  quartierId        String
+  quartier          Quartiers           @relation(fields: [quartierId], references: [idQuartier])
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @default(now()) @updatedAt
+  Images            Images[]
+}
+
+model PropertyAmenties {
+  idAmenty    String     @id @default(dbgenerated("gen_random_uuid()"))
+  amentyType  String
+  amentyValue String
+  propertyId  String
+  property    Properties @relation(fields: [propertyId], references: [idProperty])
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now()) @updatedAt
+}
+
+model PotentialCosts {
+  idPotentialCost String        @id @default(dbgenerated("gen_random_uuid()"))
+  costType        PotentialCost @default(WATER)
+  costValue       Decimal
+  propertyId      String
+  property        Properties    @relation(fields: [propertyId], references: [idProperty])
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @default(now()) @updatedAt
+}
+
+model PropertyDistances {
+  idDistances   String           @id @default(dbgenerated("gen_random_uuid()"))
+  distanceType  PropertyDistance @default(ASPHALT)
+  distanceValue Decimal
+  propertyId    String
+  property      Properties       @relation(fields: [propertyId], references: [idProperty])
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @default(now()) @updatedAt
+}
+
+model Cities {
+  idCity          String     @id @default(dbgenerated("gen_random_uuid()"))
+  cityName        String
+  cityDescription String
+  Communes        Communes[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @default(now()) @updatedAt
+}
+
+model Communes {
+  idCommune          String      @id @default(dbgenerated("gen_random_uuid()"))
+  communeName        String
+  communeDescription String
+  Quartiers          Quartiers[]
+  cityId             String
+  city               Cities      @relation(fields: [cityId], references: [idCity])
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @default(now()) @updatedAt
+}
+
+model Images {
+  idImage    String     @id @default(dbgenerated("gen_random_uuid()"))
+  url        String     @db.Text
+  secure_url String     @db.Text
+  width      Int
+  height     Int
+  propertyId String
+  Property   Properties @relation(fields: [propertyId], references: [idProperty])
+}
+
+model Quartiers {
+  idQuartier          String       @id @default(dbgenerated("gen_random_uuid()"))
+  quartierName        String
+  quartierDescription String
+  Communes            Communes     @relation(fields: [communeId], references: [idCommune])
+  communeId           String
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @default(now()) @updatedAt
+  Properties          Properties[]
+}
+
+enum OperationType {
+  RENT
+  BUY
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  OCCUPIED
+}
+
+enum PropertyType {
+  HOUSE
+  APPARTMENT
+}
+
+enum PropertyDistance {
+  ASPHALT
+  HOPITAL
+}
+
+enum PotentialCost {
+  WATER
+  SNEL
+}
+
+enum UserType {
+  CLIENT
+  VENDOR
+}
