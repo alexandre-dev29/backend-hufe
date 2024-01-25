@@ -15,32 +15,36 @@ datasource db {
 }
 
 model Users {
-  phoneNumber     String   @id @unique
-  fullName        String   @db.VarChar(200)
+  phoneNumber     String       @id @unique
+  fullName        String       @db.VarChar(200)
   email           String?
   password        String
-  isPhoneVerified Boolean  @default(false)
-  userType        UserType @default(CLIENT)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @default(now()) @updatedAt
+  isPhoneVerified Boolean      @default(false)
+  userType        UserType     @default(CLIENT)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @default(now()) @updatedAt
+  Properties      Properties[]
 }
 
 model Properties {
-  idProperty        String              @id @default(dbgenerated("gen_random_uuid()"))
-  propertyName      String
-  postalCode        String?
-  propertyStatus    PropertyStatus      @default(AVAILABLE)
-  propertyType      PropertyType        @default(HOUSE)
-  pieceCount        Int
-  price             Decimal
-  PropertyAmenties  PropertyAmenties[]
-  PotentialCosts    PotentialCosts[]
-  PropertyDistances PropertyDistances[]
-  quartierId        String
-  quartier          Quartiers           @relation(fields: [quartierId], references: [idQuartier])
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @default(now()) @updatedAt
-  Images            Images[]
+  idProperty          String              @id @default(dbgenerated("gen_random_uuid()"))
+  propertyName        String
+  propertyDescriptiom String              @default("") @db.Text
+  postalCode          String?
+  propertyStatus      PropertyStatus      @default(AVAILABLE)
+  propertyType        PropertyType        @default(HOUSE)
+  pieceCount          Int
+  price               Decimal
+  PropertyAmenties    PropertyAmenties[]
+  PotentialCosts      PotentialCosts[]
+  PropertyDistances   PropertyDistances[]
+  quartierId          String
+  quartier            Quartiers           @relation(fields: [quartierId], references: [idQuartier])
+  creatorId           String              @default("+243975344824")
+  Creator             Users               @relation(fields: [creatorId], references: [phoneNumber])
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @default(now()) @updatedAt
+  Images              Images[]
 }
 
 model PropertyAmenties {
@@ -142,4 +146,5 @@ enum PotentialCost {
 enum UserType {
   CLIENT
   VENDOR
+  ADMIN
 }
