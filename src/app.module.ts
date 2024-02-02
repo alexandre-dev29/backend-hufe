@@ -18,6 +18,7 @@ import { UserSecurity } from './types/user.security';
 import { SecurityModule } from './security/security.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './security/jwt.strategy';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -32,9 +33,80 @@ import { JwtStrategy } from './security/jwt.strategy';
           plugin: mercuriusCache,
           options: {
             all: false,
-            ttl: 120,
+            ttl: 480,
 
-            policy: { Query: { properties: true, property: true } },
+            policy: {
+              Query: {
+                properties: {
+                  references: (
+                    { source, args, context, info },
+                    key,
+                    result,
+                  ) => {
+                    if (!result) {
+                      return;
+                    }
+
+                    const references = result.map((property) => {
+                      return `property:${property.idProperty}`;
+                    });
+                    references.push('properties');
+                    return references;
+                  },
+                },
+                property: {
+                  references: (
+                    { source, args, context, info },
+                    key,
+                    result,
+                  ) => {
+                    if (!result) {
+                      return;
+                    }
+                    return [`property:${result.idProperty}`];
+                  },
+                },
+                users: {
+                  references: (
+                    { source, args, context, info },
+                    key,
+                    result,
+                  ) => {
+                    if (!result) {
+                      return;
+                    }
+                    const references = result.map(
+                      (user) => `user:${user.phoneNumber}`,
+                    );
+                    references.push('users');
+                    return references;
+                  },
+                },
+                user: {
+                  key({ self, arg, info, ctx, fields }) {
+                    return `${arg.phoneNumber}`;
+                  },
+                  references: (
+                    { source, args, context, info },
+                    key,
+                    result,
+                  ) => {
+                    if (!result) {
+                      return;
+                    }
+                    return [`user:${result.phoneNumber}`];
+                  },
+                },
+              },
+              Mutation: {
+                updateProperty: {
+                  // invalidate the user and cascade invalidate user pages and groups involving it
+                  invalidate: (self, arg, ctx, info, result) => {
+                    return [`properties`];
+                  },
+                },
+              },
+            },
             storage: {
               type: 'redis',
               options: { client: new Redis() },
@@ -58,6 +130,7 @@ import { JwtStrategy } from './security/jwt.strategy';
     PropertiesModule,
     TypesModule,
     SecurityModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [JwtStrategy],

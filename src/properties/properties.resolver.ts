@@ -63,11 +63,11 @@ export class PropertiesResolver {
     return this.propertiesService.findOne(findOneArgs);
   }
 
-  @Mutation(() => Properties)
-  @UseGuards(MainAuthGuardGuard, AccessGuard)
-  @UseAbility(PropertiesSecurityActions.update, Properties)
+  @Mutation(() => String)
+  // @UseGuards(MainAuthGuardGuard, AccessGuard)
+  // @UseAbility(PropertiesSecurityActions.update, Properties)
   updateProperty(@Args() updatePropertyInput: UpdateOnePropertiesArgs) {
-    return this.propertiesService.update(updatePropertyInput);
+    return 'good';
   }
 
   @Mutation(() => Properties)
