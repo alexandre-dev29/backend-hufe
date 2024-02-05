@@ -109,7 +109,14 @@ import { UsersModule } from './users/users.module';
             },
             storage: {
               type: 'redis',
-              options: { client: new Redis() },
+              options: {
+                client: new Redis({
+                  host: process.env.REDIS_HOST,
+                  username: process.env.REDIS_USER,
+                  password: process.env.REDIS_PASSWORD,
+                  name: process.env.REDIS_DB,
+                }),
+              },
             },
           } as MercuriusCacheOptions,
         } as MercuriusPlugin<MercuriusCacheOptions>,
