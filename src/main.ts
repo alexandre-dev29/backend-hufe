@@ -14,7 +14,9 @@ async function bootstrap() {
   );
   await app.register(MercuriusGQLUpload, { maxFiles: 10 });
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0', (err, address) => {
+    Logger.log(address);
+  });
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
 
