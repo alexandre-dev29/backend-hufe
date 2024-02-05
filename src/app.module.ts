@@ -115,7 +115,7 @@ import { UsersModule } from './users/users.module';
                   username: process.env.REDIS_USER,
                   password: process.env.REDIS_PASSWORD,
                   name: process.env.REDIS_DB,
-                  port: Number.parseInt(process.env.REDIS_DB),
+                  port: Number.parseInt(process.env.REDIS_PORT),
                 }),
               },
             },
