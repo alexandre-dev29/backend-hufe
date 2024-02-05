@@ -4,6 +4,7 @@ import { UsersResolver } from './users.resolver';
 import { PrismaService } from '../utilities/prisma.service';
 import { UtilityService } from '../utilities/utilities.service';
 import { JwtService } from '@nestjs/jwt';
+import { LoginResponse } from '../types/AuthTypes';
 
 @Module({
   providers: [
@@ -12,6 +13,7 @@ import { JwtService } from '@nestjs/jwt';
     PrismaService,
     UtilityService,
     JwtService,
+    LoginResponse,
   ],
 })
 export class UsersModule {}
