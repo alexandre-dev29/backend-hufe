@@ -25,8 +25,8 @@ export class PropertiesResolver {
   ) {}
 
   @Mutation(() => Properties)
-  @UseGuards(MainAuthGuardGuard, AccessGuard)
-  @UseAbility(PropertiesSecurityActions.create, Properties)
+  // @UseGuards(MainAuthGuardGuard, AccessGuard)
+  // @UseAbility(PropertiesSecurityActions.create, Properties)
   async createProperty(
     @Args() createPropertyInput: CreateOnePropertiesArgs,
     @Args({ name: 'propertyImages', type: () => [GraphQLUpload] })
