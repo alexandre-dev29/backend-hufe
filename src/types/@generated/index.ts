@@ -59,6 +59,9 @@ export enum PropertiesScalarFieldEnum {
   propertyStatus = 'propertyStatus',
   propertyType = 'propertyType',
   pieceCount = 'pieceCount',
+  bedCount = 'bedCount',
+  BathCount = 'BathCount',
+  sqaureMeters = 'sqaureMeters',
   price = 'price',
   quartierId = 'quartierId',
   creatorId = 'creatorId',
@@ -5278,6 +5281,12 @@ export class PropertiesAvgAggregateInput {
   @Field(() => Boolean, { nullable: true })
   pieceCount?: true;
   @Field(() => Boolean, { nullable: true })
+  bedCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  BathCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  sqaureMeters?: true;
+  @Field(() => Boolean, { nullable: true })
   price?: true;
 }
 
@@ -5285,6 +5294,12 @@ export class PropertiesAvgAggregateInput {
 export class PropertiesAvgAggregate {
   @Field(() => Float, { nullable: true })
   pieceCount?: number;
+  @Field(() => Float, { nullable: true })
+  bedCount?: number;
+  @Field(() => Float, { nullable: true })
+  BathCount?: number;
+  @Field(() => Float, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: true })
   price?: Decimal;
 }
@@ -5293,6 +5308,12 @@ export class PropertiesAvgAggregate {
 export class PropertiesAvgOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
 }
@@ -5313,6 +5334,12 @@ export class PropertiesCountAggregateInput {
   propertyType?: true;
   @Field(() => Boolean, { nullable: true })
   pieceCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  bedCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  BathCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  sqaureMeters?: true;
   @Field(() => Boolean, { nullable: true })
   price?: true;
   @Field(() => Boolean, { nullable: true })
@@ -5344,6 +5371,12 @@ export class PropertiesCountAggregate {
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
   @Field(() => Int, { nullable: false })
+  bedCount!: number;
+  @Field(() => Int, { nullable: false })
+  BathCount!: number;
+  @Field(() => Int, { nullable: false })
+  sqaureMeters!: number;
+  @Field(() => Int, { nullable: false })
   price!: number;
   @Field(() => Int, { nullable: false })
   quartierId!: number;
@@ -5373,6 +5406,12 @@ export class PropertiesCountOrderByAggregateInput {
   propertyType?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -5422,6 +5461,12 @@ export class PropertiesCreateManyCreatorInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5459,6 +5504,12 @@ export class PropertiesCreateManyQuartierInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5487,6 +5538,12 @@ export class PropertiesCreateManyInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5685,6 +5742,12 @@ export class PropertiesCreateWithoutCreatorInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5742,6 +5805,12 @@ export class PropertiesCreateWithoutImagesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5799,6 +5868,12 @@ export class PropertiesCreateWithoutPotentialCostsInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5852,6 +5927,12 @@ export class PropertiesCreateWithoutPropertyAmentiesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5905,6 +5986,12 @@ export class PropertiesCreateWithoutPropertyDistancesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -5958,6 +6045,12 @@ export class PropertiesCreateWithoutQuartierInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6011,6 +6104,12 @@ export class PropertiesCreateInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6105,6 +6204,12 @@ export class PropertiesGroupBy {
   propertyType!: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: false })
+  bedCount!: number;
+  @Field(() => Int, { nullable: false })
+  BathCount!: number;
+  @Field(() => Int, { nullable: false })
+  sqaureMeters!: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   price!: Decimal;
   @Field(() => String, { nullable: false })
@@ -6157,6 +6262,12 @@ export class PropertiesMaxAggregateInput {
   @Field(() => Boolean, { nullable: true })
   pieceCount?: true;
   @Field(() => Boolean, { nullable: true })
+  bedCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  BathCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  sqaureMeters?: true;
+  @Field(() => Boolean, { nullable: true })
   price?: true;
   @Field(() => Boolean, { nullable: true })
   quartierId?: true;
@@ -6184,6 +6295,12 @@ export class PropertiesMaxAggregate {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: true })
   pieceCount?: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: true })
   price?: Decimal;
   @Field(() => String, { nullable: true })
@@ -6213,6 +6330,12 @@ export class PropertiesMaxOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   quartierId?: keyof typeof SortOrder;
@@ -6241,6 +6364,12 @@ export class PropertiesMinAggregateInput {
   @Field(() => Boolean, { nullable: true })
   pieceCount?: true;
   @Field(() => Boolean, { nullable: true })
+  bedCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  BathCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  sqaureMeters?: true;
+  @Field(() => Boolean, { nullable: true })
   price?: true;
   @Field(() => Boolean, { nullable: true })
   quartierId?: true;
@@ -6268,6 +6397,12 @@ export class PropertiesMinAggregate {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: true })
   pieceCount?: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: true })
   price?: Decimal;
   @Field(() => String, { nullable: true })
@@ -6296,6 +6431,12 @@ export class PropertiesMinOrderByAggregateInput {
   propertyType?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -6330,6 +6471,12 @@ export class PropertiesOrderByWithAggregationInput {
   propertyType?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -6373,6 +6520,12 @@ export class PropertiesOrderByWithRelationInput {
   propertyType?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -6448,6 +6601,12 @@ export class PropertiesScalarWhereWithAggregatesInput {
   propertyType?: InstanceType<typeof EnumPropertyTypeWithAggregatesFilter>;
   @Field(() => IntWithAggregatesFilter, { nullable: true })
   pieceCount?: InstanceType<typeof IntWithAggregatesFilter>;
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  bedCount?: InstanceType<typeof IntWithAggregatesFilter>;
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  BathCount?: InstanceType<typeof IntWithAggregatesFilter>;
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntWithAggregatesFilter>;
   @Field(() => DecimalWithAggregatesFilter, { nullable: true })
   @Type(() => DecimalWithAggregatesFilter)
   price?: InstanceType<typeof DecimalWithAggregatesFilter>;
@@ -6486,6 +6645,12 @@ export class PropertiesScalarWhereInput {
   propertyType?: InstanceType<typeof EnumPropertyTypeFilter>;
   @Field(() => IntFilter, { nullable: true })
   pieceCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  bedCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  BathCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFilter>;
   @Field(() => DecimalFilter, { nullable: true })
   @Type(() => DecimalFilter)
   price?: InstanceType<typeof DecimalFilter>;
@@ -6504,6 +6669,12 @@ export class PropertiesSumAggregateInput {
   @Field(() => Boolean, { nullable: true })
   pieceCount?: true;
   @Field(() => Boolean, { nullable: true })
+  bedCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  BathCount?: true;
+  @Field(() => Boolean, { nullable: true })
+  sqaureMeters?: true;
+  @Field(() => Boolean, { nullable: true })
   price?: true;
 }
 
@@ -6511,6 +6682,12 @@ export class PropertiesSumAggregateInput {
 export class PropertiesSumAggregate {
   @Field(() => Int, { nullable: true })
   pieceCount?: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: true })
   price?: Decimal;
 }
@@ -6519,6 +6696,12 @@ export class PropertiesSumAggregate {
 export class PropertiesSumOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   pieceCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  bedCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  BathCount?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  sqaureMeters?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   price?: keyof typeof SortOrder;
 }
@@ -6575,6 +6758,12 @@ export class PropertiesUncheckedCreateWithoutCreatorInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6631,6 +6820,12 @@ export class PropertiesUncheckedCreateWithoutImagesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6682,6 +6877,12 @@ export class PropertiesUncheckedCreateWithoutPotentialCostsInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6733,6 +6934,12 @@ export class PropertiesUncheckedCreateWithoutPropertyAmentiesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6784,6 +6991,12 @@ export class PropertiesUncheckedCreateWithoutPropertyDistancesInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6835,6 +7048,12 @@ export class PropertiesUncheckedCreateWithoutQuartierInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6891,6 +7110,12 @@ export class PropertiesUncheckedCreateInput {
   propertyType?: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: true })
+  bedCount?: number;
+  @Field(() => Int, { nullable: true })
+  BathCount?: number;
+  @Field(() => Int, { nullable: true })
+  sqaureMeters?: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   @Type(() => Object)
   @Transform(transformToDecimal)
@@ -6998,6 +7223,12 @@ export class PropertiesUncheckedUpdateManyWithoutCreatorInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7074,6 +7305,12 @@ export class PropertiesUncheckedUpdateManyWithoutQuartierInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7105,6 +7342,12 @@ export class PropertiesUncheckedUpdateManyInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7138,6 +7381,12 @@ export class PropertiesUncheckedUpdateWithoutCreatorInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7197,6 +7446,12 @@ export class PropertiesUncheckedUpdateWithoutImagesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7251,6 +7506,12 @@ export class PropertiesUncheckedUpdateWithoutPotentialCostsInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7305,6 +7566,12 @@ export class PropertiesUncheckedUpdateWithoutPropertyAmentiesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7359,6 +7626,12 @@ export class PropertiesUncheckedUpdateWithoutPropertyDistancesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7413,6 +7686,12 @@ export class PropertiesUncheckedUpdateWithoutQuartierInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7472,6 +7751,12 @@ export class PropertiesUncheckedUpdateInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7533,6 +7818,12 @@ export class PropertiesUpdateManyMutationInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7846,6 +8137,12 @@ export class PropertiesUpdateWithoutCreatorInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7906,6 +8203,12 @@ export class PropertiesUpdateWithoutImagesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -7970,6 +8273,12 @@ export class PropertiesUpdateWithoutPotentialCostsInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -8030,6 +8339,12 @@ export class PropertiesUpdateWithoutPropertyAmentiesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -8090,6 +8405,12 @@ export class PropertiesUpdateWithoutPropertyDistancesInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -8150,6 +8471,12 @@ export class PropertiesUpdateWithoutQuartierInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -8210,6 +8537,12 @@ export class PropertiesUpdateInput {
   >;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   pieceCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bedCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  BathCount?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => DecimalFieldUpdateOperationsInput, { nullable: true })
   @Type(() => DecimalFieldUpdateOperationsInput)
   price?: InstanceType<typeof DecimalFieldUpdateOperationsInput>;
@@ -8368,6 +8701,12 @@ export class PropertiesWhereUniqueInput {
   propertyType?: InstanceType<typeof EnumPropertyTypeFilter>;
   @Field(() => IntFilter, { nullable: true })
   pieceCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  bedCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  BathCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFilter>;
   @Field(() => DecimalFilter, { nullable: true })
   @Type(() => DecimalFilter)
   price?: InstanceType<typeof DecimalFilter>;
@@ -8424,6 +8763,12 @@ export class PropertiesWhereInput {
   propertyType?: InstanceType<typeof EnumPropertyTypeFilter>;
   @Field(() => IntFilter, { nullable: true })
   pieceCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  bedCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  BathCount?: InstanceType<typeof IntFilter>;
+  @Field(() => IntFilter, { nullable: true })
+  sqaureMeters?: InstanceType<typeof IntFilter>;
   @Field(() => DecimalFilter, { nullable: true })
   @Type(() => DecimalFilter)
   price?: InstanceType<typeof DecimalFilter>;
@@ -8471,6 +8816,12 @@ export class Properties {
   propertyType!: keyof typeof PropertyType;
   @Field(() => Int, { nullable: false })
   pieceCount!: number;
+  @Field(() => Int, { nullable: false, defaultValue: 0 })
+  bedCount!: number;
+  @Field(() => Int, { nullable: false, defaultValue: 0 })
+  BathCount!: number;
+  @Field(() => Int, { nullable: false, defaultValue: 0 })
+  sqaureMeters!: number;
   @Field(() => GraphQLDecimal, { nullable: false })
   price!: Decimal;
   @Field(() => String, { nullable: false })

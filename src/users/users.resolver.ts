@@ -5,7 +5,6 @@ import {
   DeleteOneUsersArgs,
   FindManyUsersArgs,
   FindUniqueUsersArgs,
-  UpdateOneUsersArgs,
   Users,
 } from '../types/@generated';
 import { LoginResponse } from '../types/AuthTypes';

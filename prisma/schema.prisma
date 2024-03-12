@@ -34,6 +34,9 @@ model Properties {
   propertyStatus      PropertyStatus      @default(AVAILABLE)
   propertyType        PropertyType        @default(HOUSE)
   pieceCount          Int
+  bedCount            Int                 @default(0)
+  BathCount           Int                 @default(0)
+  sqaureMeters        Int                 @default(0)
   price               Decimal
   PropertyAmenties    PropertyAmenties[]
   PotentialCosts      PotentialCosts[]

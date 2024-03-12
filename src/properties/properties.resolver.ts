@@ -36,15 +36,14 @@ export class PropertiesResolver {
   ) {
     const listOfImages: ImagesCreateWithoutPropertyInput[] = [];
     for (const promisedFile of propertyImages) {
-      console.log(promisedFile);
       const fileUpload = await promisedFile;
-      const response = await this.cloudinaryService.uploadFile(fileUpload);
+      const response = await this.s3UploadService.uploadFileToS3(fileUpload);
       if (response) {
         listOfImages.push({
-          height: response.height,
-          url: response.url,
-          secure_url: response.secure_url,
-          width: response.width,
+          height: 0,
+          url: response.Location,
+          secure_url: response.Location,
+          width: 0,
         });
       }
     }
