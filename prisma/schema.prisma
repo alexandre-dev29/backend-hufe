@@ -35,8 +35,8 @@ model Properties {
   propertyType        PropertyType        @default(HOUSE)
   pieceCount          Int
   bedCount            Int                 @default(0)
-  BathCount           Int                 @default(0)
-  sqaureMeters        Int                 @default(0)
+  bathCount           Int                 @default(0)
+  squareMeters        Int                 @default(0)
   price               Decimal
   PropertyAmenties    PropertyAmenties[]
   PotentialCosts      PotentialCosts[]
