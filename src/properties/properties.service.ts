@@ -28,7 +28,10 @@ export class PropertiesService {
   findAll(findManyProperties: FindManyPropertiesArgs) {
     return this.prismaService.properties.findMany({
       ...findManyProperties,
-      include: { quartier: true, Images: true },
+      include: {
+        quartier: true,
+        Images: true,
+      },
       distinct: 'idProperty',
     });
   }
@@ -36,7 +39,13 @@ export class PropertiesService {
   findOne(findOneArgs: FindFirstPropertiesArgs) {
     return this.prismaService.properties.findFirst({
       ...findOneArgs,
-      include: { quartier: true, Images: true },
+      include: {
+        quartier: true,
+        Images: true,
+        PropertyAmenties: true,
+        PotentialCosts: true,
+        PropertyDistances: true,
+      },
       distinct: 'idProperty',
     });
   }
