@@ -5,6 +5,7 @@ import { CloudinaryService } from './cloudinary.service';
 import { CloudinaryProvider } from './cloudinary-provider';
 import { UtilityService } from './utilities.service';
 import { JwtService } from '@nestjs/jwt';
+import { AwsService } from './aws.service';
 
 @Module({
   providers: [
@@ -14,6 +15,7 @@ import { JwtService } from '@nestjs/jwt';
     CloudinaryProvider,
     UtilityService,
     JwtService,
+    AwsService,
   ],
   exports: [PrismaService, CloudinaryService, CloudinaryProvider],
 })

@@ -5,6 +5,7 @@ import { PrismaService } from '../utilities/prisma.service';
 import { CloudinaryService } from '../utilities/cloudinary.service';
 import { CaslModule } from 'nest-casl';
 import { propertiesPermissions } from './properties.permission';
+import { AwsService } from '../utilities/aws.service';
 
 @Module({
   imports: [CaslModule.forFeature({ permissions: propertiesPermissions })],
@@ -13,6 +14,7 @@ import { propertiesPermissions } from './properties.permission';
     PropertiesService,
     PrismaService,
     CloudinaryService,
+    AwsService,
   ],
 })
 export class PropertiesModule {}

@@ -16,12 +16,14 @@ import { UseGuards } from '@nestjs/common';
 import { MainAuthGuardGuard } from '../security/main-guard.guard';
 import { AccessGuard, UseAbility } from 'nest-casl';
 import { PropertiesSecurityActions } from '../security/actions/security-actions';
+import { AwsService } from '../utilities/aws.service';
 
 @Resolver(() => Properties)
 export class PropertiesResolver {
   constructor(
     private readonly propertiesService: PropertiesService,
     private cloudinaryService: CloudinaryService,
+    private s3UploadService: AwsService,
   ) {}
 
   @Mutation(() => Properties)
@@ -47,6 +49,16 @@ export class PropertiesResolver {
       }
     }
     return this.propertiesService.create(createPropertyInput, listOfImages);
+  }
+
+  @Mutation(() => String)
+  async testUploadS3(
+    @Args({ name: 'propertyImages', type: () => GraphQLUpload })
+    propertyImages: FileUpload,
+  ) {
+    const fileUpload = await propertyImages;
+    const response = await this.s3UploadService.uploadFileToS3(fileUpload);
+    return JSON.stringify(response);
   }
 
   @Query(() => [Properties], { name: 'properties' })
