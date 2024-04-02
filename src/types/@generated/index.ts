@@ -55,6 +55,8 @@ export enum PropertiesScalarFieldEnum {
   idProperty = 'idProperty',
   propertyName = 'propertyName',
   propertyDescriptiom = 'propertyDescriptiom',
+  propertyLongitude = 'propertyLongitude',
+  propertyLatitude = 'propertyLatitude',
   postalCode = 'postalCode',
   propertyStatus = 'propertyStatus',
   propertyType = 'propertyType',
@@ -5327,6 +5329,10 @@ export class PropertiesCountAggregateInput {
   @Field(() => Boolean, { nullable: true })
   propertyDescriptiom?: true;
   @Field(() => Boolean, { nullable: true })
+  propertyLongitude?: true;
+  @Field(() => Boolean, { nullable: true })
+  propertyLatitude?: true;
+  @Field(() => Boolean, { nullable: true })
   postalCode?: true;
   @Field(() => Boolean, { nullable: true })
   propertyStatus?: true;
@@ -5363,6 +5369,10 @@ export class PropertiesCountAggregate {
   @Field(() => Int, { nullable: false })
   propertyDescriptiom!: number;
   @Field(() => Int, { nullable: false })
+  propertyLongitude!: number;
+  @Field(() => Int, { nullable: false })
+  propertyLatitude!: number;
+  @Field(() => Int, { nullable: false })
   postalCode!: number;
   @Field(() => Int, { nullable: false })
   propertyStatus!: number;
@@ -5398,6 +5408,10 @@ export class PropertiesCountOrderByAggregateInput {
   propertyName?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   propertyDescriptiom?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLongitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLatitude?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   postalCode?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -5454,6 +5468,10 @@ export class PropertiesCreateManyCreatorInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -5497,6 +5515,10 @@ export class PropertiesCreateManyQuartierInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -5530,6 +5552,10 @@ export class PropertiesCreateManyInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -5735,6 +5761,10 @@ export class PropertiesCreateWithoutCreatorInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -5797,6 +5827,10 @@ export class PropertiesCreateWithoutImagesInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -5861,6 +5895,10 @@ export class PropertiesCreateWithoutPotentialCostsInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -5919,6 +5957,10 @@ export class PropertiesCreateWithoutPropertyAmentiesInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -5979,6 +6021,10 @@ export class PropertiesCreateWithoutPropertyDistancesInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6038,6 +6084,10 @@ export class PropertiesCreateWithoutQuartierInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6096,6 +6146,10 @@ export class PropertiesCreateInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -6196,6 +6250,10 @@ export class PropertiesGroupBy {
   propertyName!: string;
   @Field(() => String, { nullable: false })
   propertyDescriptiom!: string;
+  @Field(() => String, { nullable: false })
+  propertyLongitude!: string;
+  @Field(() => String, { nullable: false })
+  propertyLatitude!: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: false })
@@ -6254,6 +6312,10 @@ export class PropertiesMaxAggregateInput {
   @Field(() => Boolean, { nullable: true })
   propertyDescriptiom?: true;
   @Field(() => Boolean, { nullable: true })
+  propertyLongitude?: true;
+  @Field(() => Boolean, { nullable: true })
+  propertyLatitude?: true;
+  @Field(() => Boolean, { nullable: true })
   postalCode?: true;
   @Field(() => Boolean, { nullable: true })
   propertyStatus?: true;
@@ -6287,6 +6349,10 @@ export class PropertiesMaxAggregate {
   propertyName?: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -6322,6 +6388,10 @@ export class PropertiesMaxOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   propertyDescriptiom?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
+  propertyLongitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLatitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
   postalCode?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   propertyStatus?: keyof typeof SortOrder;
@@ -6355,6 +6425,10 @@ export class PropertiesMinAggregateInput {
   propertyName?: true;
   @Field(() => Boolean, { nullable: true })
   propertyDescriptiom?: true;
+  @Field(() => Boolean, { nullable: true })
+  propertyLongitude?: true;
+  @Field(() => Boolean, { nullable: true })
+  propertyLatitude?: true;
   @Field(() => Boolean, { nullable: true })
   postalCode?: true;
   @Field(() => Boolean, { nullable: true })
@@ -6390,6 +6464,10 @@ export class PropertiesMinAggregate {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6423,6 +6501,10 @@ export class PropertiesMinOrderByAggregateInput {
   propertyName?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   propertyDescriptiom?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLongitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLatitude?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   postalCode?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -6463,6 +6545,10 @@ export class PropertiesOrderByWithAggregationInput {
   propertyName?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   propertyDescriptiom?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLongitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLatitude?: keyof typeof SortOrder;
   @Field(() => SortOrderInput, { nullable: true })
   postalCode?: InstanceType<typeof SortOrderInput>;
   @Field(() => SortOrder, { nullable: true })
@@ -6512,6 +6598,10 @@ export class PropertiesOrderByWithRelationInput {
   propertyName?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   propertyDescriptiom?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLongitude?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  propertyLatitude?: keyof typeof SortOrder;
   @Field(() => SortOrderInput, { nullable: true })
   postalCode?: InstanceType<typeof SortOrderInput>;
   @Field(() => SortOrder, { nullable: true })
@@ -6593,6 +6683,10 @@ export class PropertiesScalarWhereWithAggregatesInput {
   propertyName?: InstanceType<typeof StringWithAggregatesFilter>;
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringWithAggregatesFilter>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringWithAggregatesFilter>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringWithAggregatesFilter>;
   @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
   postalCode?: InstanceType<typeof StringNullableWithAggregatesFilter>;
   @Field(() => EnumPropertyStatusWithAggregatesFilter, { nullable: true })
@@ -6637,6 +6731,10 @@ export class PropertiesScalarWhereInput {
   propertyName?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFilter>;
   @Field(() => StringNullableFilter, { nullable: true })
   postalCode?: InstanceType<typeof StringNullableFilter>;
   @Field(() => EnumPropertyStatusFilter, { nullable: true })
@@ -6751,6 +6849,10 @@ export class PropertiesUncheckedCreateWithoutCreatorInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6813,6 +6915,10 @@ export class PropertiesUncheckedCreateWithoutImagesInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6869,6 +6975,10 @@ export class PropertiesUncheckedCreateWithoutPotentialCostsInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -6927,6 +7037,10 @@ export class PropertiesUncheckedCreateWithoutPropertyAmentiesInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -6984,6 +7098,10 @@ export class PropertiesUncheckedCreateWithoutPropertyDistancesInput {
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
   @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
+  @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
   propertyStatus?: keyof typeof PropertyStatus;
@@ -7040,6 +7158,10 @@ export class PropertiesUncheckedCreateWithoutQuartierInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -7102,6 +7224,10 @@ export class PropertiesUncheckedCreateInput {
   propertyName!: string;
   @Field(() => String, { nullable: true })
   propertyDescriptiom?: string;
+  @Field(() => String, { nullable: true })
+  propertyLongitude?: string;
+  @Field(() => String, { nullable: true })
+  propertyLatitude?: string;
   @Field(() => String, { nullable: true })
   postalCode?: string;
   @Field(() => PropertyStatus, { nullable: true })
@@ -7211,6 +7337,10 @@ export class PropertiesUncheckedUpdateManyWithoutCreatorInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7293,6 +7423,10 @@ export class PropertiesUncheckedUpdateManyWithoutQuartierInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7330,6 +7464,10 @@ export class PropertiesUncheckedUpdateManyInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7369,6 +7507,10 @@ export class PropertiesUncheckedUpdateWithoutCreatorInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7434,6 +7576,10 @@ export class PropertiesUncheckedUpdateWithoutImagesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7494,6 +7640,10 @@ export class PropertiesUncheckedUpdateWithoutPotentialCostsInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7554,6 +7704,10 @@ export class PropertiesUncheckedUpdateWithoutPropertyAmentiesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7614,6 +7768,10 @@ export class PropertiesUncheckedUpdateWithoutPropertyDistancesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7674,6 +7832,10 @@ export class PropertiesUncheckedUpdateWithoutQuartierInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7739,6 +7901,10 @@ export class PropertiesUncheckedUpdateInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -7806,6 +7972,10 @@ export class PropertiesUpdateManyMutationInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8125,6 +8295,10 @@ export class PropertiesUpdateWithoutCreatorInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8191,6 +8365,10 @@ export class PropertiesUpdateWithoutImagesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8261,6 +8439,10 @@ export class PropertiesUpdateWithoutPotentialCostsInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8327,6 +8509,10 @@ export class PropertiesUpdateWithoutPropertyAmentiesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8393,6 +8579,10 @@ export class PropertiesUpdateWithoutPropertyDistancesInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8459,6 +8649,10 @@ export class PropertiesUpdateWithoutQuartierInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8525,6 +8719,10 @@ export class PropertiesUpdateInput {
   propertyName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   postalCode?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
   @Field(() => EnumPropertyStatusFieldUpdateOperationsInput, { nullable: true })
@@ -8693,6 +8891,10 @@ export class PropertiesWhereUniqueInput {
   propertyName?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFilter>;
   @Field(() => StringNullableFilter, { nullable: true })
   postalCode?: InstanceType<typeof StringNullableFilter>;
   @Field(() => EnumPropertyStatusFilter, { nullable: true })
@@ -8755,6 +8957,10 @@ export class PropertiesWhereInput {
   propertyName?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   propertyDescriptiom?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLongitude?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  propertyLatitude?: InstanceType<typeof StringFilter>;
   @Field(() => StringNullableFilter, { nullable: true })
   postalCode?: InstanceType<typeof StringNullableFilter>;
   @Field(() => EnumPropertyStatusFilter, { nullable: true })
@@ -8808,6 +9014,10 @@ export class Properties {
   propertyName!: string;
   @Field(() => String, { nullable: false, defaultValue: '' })
   propertyDescriptiom!: string;
+  @Field(() => String, { nullable: false, defaultValue: '' })
+  propertyLongitude!: string;
+  @Field(() => String, { nullable: false, defaultValue: '' })
+  propertyLatitude!: string;
   @Field(() => String, { nullable: true })
   postalCode!: string | null;
   @Field(() => PropertyStatus, { nullable: false, defaultValue: 'AVAILABLE' })

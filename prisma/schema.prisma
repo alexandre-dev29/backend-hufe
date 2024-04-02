@@ -30,6 +30,8 @@ model Properties {
   idProperty          String              @id @default(dbgenerated("gen_random_uuid()"))
   propertyName        String
   propertyDescriptiom String              @default("") @db.Text
+  propertyLongitude   String              @default("") @db.Text
+  propertyLatitude    String              @default("") @db.Text
   postalCode          String?
   propertyStatus      PropertyStatus      @default(AVAILABLE)
   propertyType        PropertyType        @default(HOUSE)
