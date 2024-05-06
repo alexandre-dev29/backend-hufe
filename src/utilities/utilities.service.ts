@@ -4,6 +4,8 @@ import * as bcrypt from 'bcrypt';
 import { ConfigService } from '@nestjs/config';
 import { UserSecurity } from '../types/user.security';
 import { Tokens } from '../types/AuthTypes';
+import { createCanvas, Image, ImageData } from 'canvas';
+import * as blurhash from 'blurhash';
 
 @Injectable()
 export class UtilityService {
@@ -14,6 +16,24 @@ export class UtilityService {
 
   hashData = (data: string): Promise<string> => {
     return bcrypt.hash(data, 10);
+  };
+
+  generateImageHash(image: Image) {
+    const imageData = this.getImageData(image);
+    return blurhash.encode(
+      imageData.data,
+      imageData.width,
+      imageData.height,
+      4,
+      4,
+    );
+  }
+
+  private getImageData = (image: Image) => {
+    const canvas = createCanvas(image.width, image.height);
+    const context = canvas.getContext('2d');
+    context.drawImage(image, 0, 0);
+    return context.getImageData(0, 0, image.width, image.height);
   };
 
   getTokens = async ({

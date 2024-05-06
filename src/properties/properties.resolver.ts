@@ -17,6 +17,8 @@ import { MainAuthGuardGuard } from '../security/main-guard.guard';
 import { AccessGuard, UseAbility } from 'nest-casl';
 import { PropertiesSecurityActions } from '../security/actions/security-actions';
 import { AwsService } from '../utilities/aws.service';
+import { UtilityService } from '../utilities/utilities.service';
+import { loadImage } from 'canvas';
 
 @Resolver(() => Properties)
 export class PropertiesResolver {
@@ -24,6 +26,7 @@ export class PropertiesResolver {
     private readonly propertiesService: PropertiesService,
     private cloudinaryService: CloudinaryService,
     private s3UploadService: AwsService,
+    private utilityService: UtilityService,
   ) {}
 
   @Mutation(() => Properties)
@@ -38,12 +41,15 @@ export class PropertiesResolver {
     for (const promisedFile of propertyImages) {
       const fileUpload = await promisedFile;
       const response = await this.s3UploadService.uploadFileToS3(fileUpload);
+      const myImage = await loadImage(response.Location);
+      const imageHash = this.utilityService.generateImageHash(myImage);
       if (response) {
         listOfImages.push({
           height: 0,
           url: response.Location,
           secure_url: response.Location,
           width: 0,
+          image_hash: imageHash,
         });
       }
     }

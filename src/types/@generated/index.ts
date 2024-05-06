@@ -132,6 +132,7 @@ export enum ImagesScalarFieldEnum {
   idImage = 'idImage',
   url = 'url',
   secure_url = 'secure_url',
+  image_hash = 'image_hash',
   width = 'width',
   height = 'height',
   propertyId = 'propertyId',
@@ -2193,6 +2194,8 @@ export class ImagesCountAggregateInput {
   @Field(() => Boolean, { nullable: true })
   secure_url?: true;
   @Field(() => Boolean, { nullable: true })
+  image_hash?: true;
+  @Field(() => Boolean, { nullable: true })
   width?: true;
   @Field(() => Boolean, { nullable: true })
   height?: true;
@@ -2211,6 +2214,8 @@ export class ImagesCountAggregate {
   @Field(() => Int, { nullable: false })
   secure_url!: number;
   @Field(() => Int, { nullable: false })
+  image_hash!: number;
+  @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
   height!: number;
@@ -2228,6 +2233,8 @@ export class ImagesCountOrderByAggregateInput {
   url?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   secure_url?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  image_hash?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   width?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -2253,6 +2260,8 @@ export class ImagesCreateManyPropertyInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2267,6 +2276,8 @@ export class ImagesCreateManyInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2309,6 +2320,8 @@ export class ImagesCreateWithoutPropertyInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2323,6 +2336,8 @@ export class ImagesCreateInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2367,6 +2382,8 @@ export class ImagesGroupBy {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: false })
+  image_hash!: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2404,6 +2421,8 @@ export class ImagesMaxAggregateInput {
   @Field(() => Boolean, { nullable: true })
   secure_url?: true;
   @Field(() => Boolean, { nullable: true })
+  image_hash?: true;
+  @Field(() => Boolean, { nullable: true })
   width?: true;
   @Field(() => Boolean, { nullable: true })
   height?: true;
@@ -2419,6 +2438,8 @@ export class ImagesMaxAggregate {
   url?: string;
   @Field(() => String, { nullable: true })
   secure_url?: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: true })
   width?: number;
   @Field(() => Int, { nullable: true })
@@ -2436,6 +2457,8 @@ export class ImagesMaxOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   secure_url?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
+  image_hash?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
   width?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   height?: keyof typeof SortOrder;
@@ -2452,6 +2475,8 @@ export class ImagesMinAggregateInput {
   @Field(() => Boolean, { nullable: true })
   secure_url?: true;
   @Field(() => Boolean, { nullable: true })
+  image_hash?: true;
+  @Field(() => Boolean, { nullable: true })
   width?: true;
   @Field(() => Boolean, { nullable: true })
   height?: true;
@@ -2467,6 +2492,8 @@ export class ImagesMinAggregate {
   url?: string;
   @Field(() => String, { nullable: true })
   secure_url?: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: true })
   width?: number;
   @Field(() => Int, { nullable: true })
@@ -2483,6 +2510,8 @@ export class ImagesMinOrderByAggregateInput {
   url?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   secure_url?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  image_hash?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   width?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -2505,6 +2534,8 @@ export class ImagesOrderByWithAggregationInput {
   url?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   secure_url?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  image_hash?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   width?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
@@ -2532,6 +2563,8 @@ export class ImagesOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
   secure_url?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
+  image_hash?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
   width?: keyof typeof SortOrder;
   @Field(() => SortOrder, { nullable: true })
   height?: keyof typeof SortOrder;
@@ -2556,6 +2589,8 @@ export class ImagesScalarWhereWithAggregatesInput {
   url?: InstanceType<typeof StringWithAggregatesFilter>;
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   secure_url?: InstanceType<typeof StringWithAggregatesFilter>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  image_hash?: InstanceType<typeof StringWithAggregatesFilter>;
   @Field(() => IntWithAggregatesFilter, { nullable: true })
   width?: InstanceType<typeof IntWithAggregatesFilter>;
   @Field(() => IntWithAggregatesFilter, { nullable: true })
@@ -2578,6 +2613,8 @@ export class ImagesScalarWhereInput {
   url?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   secure_url?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  image_hash?: InstanceType<typeof StringFilter>;
   @Field(() => IntFilter, { nullable: true })
   width?: InstanceType<typeof IntFilter>;
   @Field(() => IntFilter, { nullable: true })
@@ -2634,6 +2671,8 @@ export class ImagesUncheckedCreateWithoutPropertyInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2648,6 +2687,8 @@ export class ImagesUncheckedCreateInput {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: true })
+  image_hash?: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })
@@ -2707,6 +2748,8 @@ export class ImagesUncheckedUpdateManyWithoutPropertyInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2721,6 +2764,8 @@ export class ImagesUncheckedUpdateManyInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2737,6 +2782,8 @@ export class ImagesUncheckedUpdateWithoutPropertyInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2751,6 +2798,8 @@ export class ImagesUncheckedUpdateInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2767,6 +2816,8 @@ export class ImagesUpdateManyMutationInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2844,6 +2895,8 @@ export class ImagesUpdateWithoutPropertyInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2858,6 +2911,8 @@ export class ImagesUpdateInput {
   url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   secure_url?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  image_hash?: InstanceType<typeof StringFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   width?: InstanceType<typeof IntFieldUpdateOperationsInput>;
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
@@ -2898,6 +2953,8 @@ export class ImagesWhereUniqueInput {
   url?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   secure_url?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  image_hash?: InstanceType<typeof StringFilter>;
   @Field(() => IntFilter, { nullable: true })
   width?: InstanceType<typeof IntFilter>;
   @Field(() => IntFilter, { nullable: true })
@@ -2923,6 +2980,8 @@ export class ImagesWhereInput {
   url?: InstanceType<typeof StringFilter>;
   @Field(() => StringFilter, { nullable: true })
   secure_url?: InstanceType<typeof StringFilter>;
+  @Field(() => StringFilter, { nullable: true })
+  image_hash?: InstanceType<typeof StringFilter>;
   @Field(() => IntFilter, { nullable: true })
   width?: InstanceType<typeof IntFilter>;
   @Field(() => IntFilter, { nullable: true })
@@ -2942,6 +3001,8 @@ export class Images {
   url!: string;
   @Field(() => String, { nullable: false })
   secure_url!: string;
+  @Field(() => String, { nullable: false, defaultValue: '' })
+  image_hash!: string;
   @Field(() => Int, { nullable: false })
   width!: number;
   @Field(() => Int, { nullable: false })

@@ -106,6 +106,7 @@ model Images {
   idImage    String     @id @default(dbgenerated("gen_random_uuid()"))
   url        String     @db.Text
   secure_url String     @db.Text
+  image_hash String     @default("") @db.Text
   width      Int
   height     Int
   propertyId String
