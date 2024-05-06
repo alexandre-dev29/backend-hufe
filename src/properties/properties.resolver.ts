@@ -42,13 +42,15 @@ export class PropertiesResolver {
       const fileUpload = await promisedFile;
       const response = await this.s3UploadService.uploadFileToS3(fileUpload);
       const myImage = await loadImage(response.Location);
-      const imageHash = this.utilityService.generateImageHash(myImage);
+      const imageData = this.utilityService.getImageData(myImage);
+      const imageHash = this.utilityService.generateImageHash(imageData);
+
       if (response) {
         listOfImages.push({
-          height: 0,
+          height: imageData.height,
           url: response.Location,
           secure_url: response.Location,
-          width: 0,
+          width: imageData.width,
           image_hash: imageHash,
         });
       }

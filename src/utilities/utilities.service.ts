@@ -18,8 +18,7 @@ export class UtilityService {
     return bcrypt.hash(data, 10);
   };
 
-  generateImageHash(image: Image) {
-    const imageData = this.getImageData(image);
+  generateImageHash(imageData: ImageData) {
     return blurhash.encode(
       imageData.data,
       imageData.width,
@@ -29,7 +28,7 @@ export class UtilityService {
     );
   }
 
-  private getImageData = (image: Image) => {
+  getImageData = (image: Image) => {
     const canvas = createCanvas(image.width, image.height);
     const context = canvas.getContext('2d');
     context.drawImage(image, 0, 0);
